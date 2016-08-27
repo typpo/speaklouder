@@ -1,7 +1,9 @@
 $(function() {
   var quill = new Quill('#editor', {
     modules: {
-      toolbar: true,
+      toolbar: {
+        container: '#toolbar'
+      }
     },
     placeholder: 'Tell the world what you\'re doing...',
     theme: 'snow'
