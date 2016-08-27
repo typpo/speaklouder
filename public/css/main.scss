@@ -1,3 +1,8 @@
+$navbar-default-link-color: #404040;
+$navbar-default-link-hover-color: #008800;
+$navbar-default-brand-color: #008800;
+$navbar-default-brand-hover-color: #00bb00;
+
 @import "vendor/bootstrap";
 
 // Scaffolding
@@ -36,6 +41,10 @@ footer {
 // Navbar
 // -------------------------
 
+nav {
+  font-family: $font-family-sans-serif;
+}
+
 .navbar-default .navbar-nav > li > a {
   border-bottom: 3px solid transparent;
   padding-bottom: ($navbar-padding-vertical - 3);
@@ -55,7 +64,11 @@ footer {
 }
 
 .navbar-default .navbar-nav > li.active > a {
-  border-bottom-color: #3f51b5;
+  border-bottom-color: #004400;
+}
+
+.navbar-brand {
+  font-weight: bold;
 }
 
 // Panels
