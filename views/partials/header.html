@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="row navbar-inner">
-    <div class="container col-sm-8 col-sm-offset-2">
+  <div class="navbar-inner">
+    <div class="col-sm-8 col-sm-offset-2 navbar-sizing">
       <div class="navbar-header">
         <button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle collapsed">
           <span class="sr-only">Toggle navigation</span>
@@ -14,6 +14,7 @@
         <ul class="nav navbar-nav">
           <li class="{% if title == 'Home' %}active{% endif %}"><a href="/">Home</a></li>
           <li class="{% if title == 'Contact' %}active{% endif %}"><a href="/contact">Contact</a></li>
+          <li class="{% if title == 'Create a Campaign' %}active{% endif %}"><a href="/create"><strong>Create a Campaign</strong></a></li>
         </ul>
       <ul class="nav navbar-nav navbar-right">
       {% if user %}

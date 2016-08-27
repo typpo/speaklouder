@@ -1070,10 +1070,10 @@ textarea {
   line-height: inherit; }
 
 a {
-  color: #4582EC;
+  color: #008800;
   text-decoration: none; }
   a:hover, a:focus {
-    color: #134fb8;
+    color: #002200;
     text-decoration: underline; }
   a:focus {
     outline: thin dotted;
@@ -3052,7 +3052,7 @@ fieldset[disabled] a.btn {
     background-color: #fff; }
 
 .btn-link {
-  color: #4582EC;
+  color: #008800;
   font-weight: normal;
   border-radius: 0; }
   .btn-link, .btn-link:active, .btn-link.active, .btn-link[disabled],
@@ -3063,7 +3063,7 @@ fieldset[disabled] a.btn {
   .btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
     border-color: transparent; }
   .btn-link:hover, .btn-link:focus {
-    color: #134fb8;
+    color: #002200;
     text-decoration: underline;
     background-color: transparent; }
   .btn-link[disabled]:hover, .btn-link[disabled]:focus,
@@ -3564,7 +3564,7 @@ tbody.collapse.in {
         cursor: not-allowed; }
   .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #eeeeee;
-    border-color: #4582EC; }
+    border-color: #008800; }
   .nav .nav-divider {
     height: 1px;
     margin: 10px 0;
@@ -4269,7 +4269,7 @@ a.label:hover, a.label:focus {
     padding: 1px 5px; }
   .list-group-item.active > .badge,
   .nav-pills > .active > a > .badge {
-    color: #4582EC;
+    color: #008800;
     background-color: #fff; }
   .list-group-item > .badge {
     float: right; }
@@ -4342,7 +4342,7 @@ a.badge:hover, a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #4582EC; }
+  border-color: #008800; }
 
 .alert {
   padding: 15px;
@@ -5862,6 +5862,9 @@ nav {
 .navbar-brand {
   font-weight: bold; }
 
+.navbar-sizing {
+  padding-left: 0; }
+
 .panel {
   border: solid 1px rgba(160, 160, 160, 0.3);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1); }
@@ -5982,6 +5985,19 @@ textarea {
 .header-container {
   margin: 30px 0; }
 
+.main-well {
+  margin: 15px;
+  /* matches .panel padding in the campaigns list */ }
+
 .large-explanation {
   font-size: 20px; }
+
+.campaign-panel img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; }
+
+.campaign-panel .desc {
+  margin-top: 8px;
+  font-size: 16px; }
 
