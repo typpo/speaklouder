@@ -37,7 +37,7 @@ nunjucks.configure('views', {
   express: app
 });
 app.set('view engine', 'html');
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 36969);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
