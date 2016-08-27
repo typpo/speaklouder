@@ -5992,6 +5992,17 @@ textarea {
 .large-explanation {
   font-size: 20px; }
 
+.call-to-action-container {
+  text-align: center;
+  margin-top: 20px; }
+
+.call-to-action-container a {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px; }
+
+.call-to-action-container .sub-caption {
+  font-size: 12px; }
+
 .campaign-panel img {
   width: 100%;
   height: 150px;
@@ -6000,4 +6011,7 @@ textarea {
 .campaign-panel .desc {
   margin-top: 8px;
   font-size: 16px; }
+
+form label {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
