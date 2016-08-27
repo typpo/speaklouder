@@ -5979,3 +5979,9 @@ textarea {
   letter-spacing: 0.2em;
   text-transform: uppercase; }
 
+.header-container {
+  margin: 30px 0; }
+
+.large-explanation {
+  font-size: 20px; }
+
