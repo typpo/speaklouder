@@ -33,6 +33,7 @@ mongoose.connection.on('error', function() {
 // view engine setup
 app.disable('view cache');
 nunjucks.configure('views', {
+  noCache: true,
   autoescape: true,
   express: app
 });
