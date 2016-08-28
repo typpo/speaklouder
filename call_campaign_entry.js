@@ -59,7 +59,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', homeController.index);
 app.get('/about', aboutController.aboutGet);
-app.get('/create-campaign', campaignController.createCampaignGet);
+app.get('/create-campaign', campaignController.campaignGet);
+app.post('/create-campaign', campaignController.campaignPost);
 app.get('/contact', contactController.contactGet);
 app.post('/contact', contactController.contactPost);
 app.get('/account', userController.ensureAuthenticated, userController.accountGet);
