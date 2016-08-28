@@ -30,20 +30,27 @@ exports.createCampaignGet = function(req, res) {
  */
 exports.createCampaignPost = function(req, res) {
   var titleSlug = slug(req.body.title).toLowerCase();
-  var campaign = new Campaign({
-    title: req.body.title,
-    slug: titleSlug,
 
-    organizerName: req.body.organizerName,
-    organizerEmail: req.body.organizerEmail,
+  Campaign.findOne({'slug': titleSlug}, function(err, result) {
+    if (!err) {
+      titleSlug += '-' + parseInt(new Date().getTime() / 1000);
+    }
 
-    descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size'),
-  });
+    var campaign = new Campaign({
+      title: req.body.title,
+      slug: titleSlug,
 
-  campaign.save();
+      organizerName: req.body.organizerName,
+      organizerEmail: req.body.organizerEmail,
 
-  res.send({
-    success: true,
-    slug: titleSlug,
+      descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size'),
+    });
+
+    campaign.save();
+
+    res.send({
+      success: true,
+      slug: titleSlug,
+    });
   });
 };
