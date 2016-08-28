@@ -1,5 +1,13 @@
 ## Call Campaign Website
 
+Configure me:
+
+```
+cp dotenv_example .env
+
+# Edit .env with your oauth keys if necessary.
+```
+
 Run me:
 
 ```

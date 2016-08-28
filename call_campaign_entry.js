@@ -16,10 +16,11 @@ var passport = require('passport');
 dotenv.load();
 
 // Controllers
-var homeController = require('./controllers/home');
+var aboutController = require('./controllers/about');
 var campaignController = require('./controllers/campaign');
-var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var homeController = require('./controllers/home');
+var userController = require('./controllers/user');
 
 // Passport OAuth strategies
 require('./config/passport');
@@ -57,6 +58,7 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', homeController.index);
+app.get('/about', aboutController.aboutGet);
 app.get('/create-campaign', campaignController.campaignGet);
 app.post('/create-campaign', campaignController.campaignPost);
 app.get('/contact', contactController.contactGet);
