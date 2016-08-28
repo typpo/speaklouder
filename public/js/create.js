@@ -21,7 +21,12 @@ $(function() {
       organizerEmail: email,
       descriptionHtml: desc,
     }, function(data) {
-      // TODO(judy): redirect to created page.
+      if (data.success) {
+        alert('Sorry, something went wrong and we could not create your campaign :( Please try again later.');
+        return;
+      }
+      // Redirect to created page.
+      window.location.href = '/campaign/' + data.slug;
     });
     return false;
   });
