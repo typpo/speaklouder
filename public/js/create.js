@@ -18,7 +18,7 @@ $(function() {
     $.post('/create-campaign', {
       title: title,
       organizerName: name,
-      email: email,
+      organizerEmail: email,
       descriptionHtml: desc,
     }, function(data) {
       // TODO(judy): redirect to created page.

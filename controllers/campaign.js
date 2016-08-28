@@ -23,19 +23,21 @@ exports.createCampaignGet = function(req, res) {
  * POST /create-campaign
  */
 exports.createCampaignPost = function(req, res) {
-  var slug = slug(req.body.title);
+  var titleSlug = slug(req.body.title);
   var campaign = new Campaign({
     title: req.body.title,
-    descriptionHtml: req.body.descriptionHtml,
+    slug: titleSlug,
+
     organizerName: req.body.organizerName,
-    email: req.body.email,
-    slug: slug,
+    organizerEmail: req.body.organizerEmail,
+
+    descriptionHtml: req.body.descriptionHtml,
   });
 
   campaign.save();
 
   res.send({
     success: true,
-    slug: slug,
+    slug: titleSlug,
   });
 };

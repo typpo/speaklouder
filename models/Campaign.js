@@ -2,10 +2,12 @@ var mongoose = require('mongoose');
 
 var campaignSchema = new mongoose.Schema({
   title: String,
-  description: String,
-  organizerName: String,
-  email: String,
   slug: String,
+
+  organizerEmail: String,
+  organizerName: String,
+
+  descriptionHtml: String,
 });
 
 var Campaign = mongoose.model('Campaign', campaignSchema);
