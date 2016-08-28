@@ -281,3 +281,23 @@ textarea {
 form label {
   font-family: $font-family-sans-serif;
 }
+
+// Campaign page
+
+.organizer-subtitle {
+  font-weight: normal;
+  color: gray;
+}
+
+// Quill font sizes.
+.sl-ql-size-small {
+  font-size: 12px;
+}
+
+.sl-ql-size-large {
+  font-size: 30px;
+}
+
+.sl-ql-size-huge {
+  font-size: 40px;
+}

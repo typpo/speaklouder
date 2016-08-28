@@ -2,7 +2,7 @@ var slug = require('slug');
 var Campaign = require('../models/Campaign');
 
 /**
- * GET /campaign/XXX
+ * GET /campaign/:slug
  */
 exports.viewCampaignGet = function(req, res) {
   Campaign.findOne({'slug': req.params.slug}, function(err, result) {

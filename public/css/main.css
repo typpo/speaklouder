@@ -6016,3 +6016,16 @@ textarea {
 form label {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+.organizer-subtitle {
+  font-weight: normal;
+  color: gray; }
+
+.sl-ql-size-small {
+  font-size: 12px; }
+
+.sl-ql-size-large {
+  font-size: 30px; }
+
+.sl-ql-size-huge {
+  font-size: 40px; }
+
