@@ -1,16 +1,16 @@
 
 /**
- * GET /contact
+ * GET /create-campaign
  */
-exports.contactGet = function(req, res) {
+exports.createCampaignGet = function(req, res) {
   res.render('edit', {
     title: 'Create a Campaign'
   });
 };
 
 /**
- * POST /contact
+ * POST /create-campaign
  */
-exports.contactPost = function(req, res) {
+exports.createCampaignPost = function(req, res) {
   res.send('placeholder');
 };
