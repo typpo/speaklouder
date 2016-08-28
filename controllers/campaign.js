@@ -31,7 +31,7 @@ exports.createCampaignPost = function(req, res) {
     organizerName: req.body.organizerName,
     organizerEmail: req.body.organizerEmail,
 
-    descriptionHtml: req.body.descriptionHtml,
+    descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size'),
   });
 
   campaign.save();
