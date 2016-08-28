@@ -27,7 +27,8 @@ exports.editCampaignGet = function(req, res) {
     }
     res.render('edit', {
       title: 'Edit a Campaign',
-      campaign: result
+      campaign: result,
+      descriptionHtml: reuslt.descriptionHtml,
     });
   });
 };
@@ -45,12 +46,10 @@ exports.createCampaignGet = function(req, res) {
  * Helper function to edit a campaign.
  */
 function editCampaignPost(req, res) {
-  var titleSlug = slug(req.body.title).toLowerCase();
   Campaign.update(
     {'slug': titleSlug},
     {
       title: req.body.title,
-      slug: titleSlug,
       organizerName: req.body.organizerName,
       organizerEmail: req.body.organizerEmail,
       descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size')
@@ -58,13 +57,12 @@ function editCampaignPost(req, res) {
       if (err) {
         res.send({
           success: false,
-          slug: titleSlug,
         });
         return;
       }
       res.send({
         success: true,
-        slug: titleSlug,
+        slug: result.slug,
       });
     }
   );
