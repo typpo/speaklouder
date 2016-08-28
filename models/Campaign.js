@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var campaignSchema = new mongoose.Schema({
   title: String,
   description: String,
-  ownerID: {type: mongoose.Schema.Types.ObjectId, ref: 'Owner'}
-  // Supporters includes the owner
-  // supporters: [{type: mongoose.Schema.Types.ObjectId, ref: 'Supporter'}]
+  organizerName: String,
+  email: String,
+  slug: String,
 });
 
 var Campaign = mongoose.model('Campaign', campaignSchema);
