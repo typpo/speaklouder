@@ -20,6 +20,7 @@ $(function() {
       organizerName: name,
       organizerEmail: email,
       descriptionHtml: desc,
+      edit: (window.location.pathname.match(/campaign\/.*\/edit$/) != null)
     }, function(data) {
       if (!data.success) {
         alert('Sorry, something went wrong and we could not create your campaign :( Please try again later.');
