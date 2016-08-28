@@ -27,10 +27,11 @@ exports.editCampaignGet = function(req, res) {
       res.redirect('/create-campaign');
       return;
     }
+    // Reverse the class renaming so Quill can understand it.
+    result.descriptionHtml = result.descriptionHtml.replace('sl-ql-size', 'ql-size');
     res.render('edit', {
       title: 'Edit a Campaign',
       campaign: result,
-      descriptionHtml: result.descriptionHtml,
 
       edit: true,
     });

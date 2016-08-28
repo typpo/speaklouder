@@ -156,7 +156,11 @@
                   <button class="ql-link"></button>
                 </span>
             </div>
-            <div id="editor" style="height: 375px;"></div>
+            <div id="editor" style="height: 375px;">
+              {% if edit %}
+                {{campaign.descriptionHtml | safe }}
+              {% endif %}
+            </div>
           </div>
         </div>
         <div class="form-group">
