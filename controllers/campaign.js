@@ -1,4 +1,6 @@
 var slug = require('slug');
+var util = require('util');
+
 var Campaign = require('../models/Campaign');
 
 /**
@@ -78,10 +80,13 @@ exports.createCampaignPost = function(req, res) {
   var titleSlug = slug(req.body.title).toLowerCase();
 
   if (req.body.edit) {
+    // User is editing an existing campaign.
     return editCampaignPost(req, res);
   }
+
   Campaign.findOne({'slug': titleSlug}, function(err, result) {
     if (!err) {
+      // Handle slug collision.
       titleSlug += '-' + parseInt(new Date().getTime() / 1000);
     }
 
@@ -97,6 +102,9 @@ exports.createCampaignPost = function(req, res) {
 
     campaign.save();
 
+    req.flash('success', {
+      msg: util.format('Here\'s your new campaign page!  Share it with others: http://www.speaklouder.org/%s', titleSlug),
+    });
     res.send({
       success: true,
       slug: titleSlug,
