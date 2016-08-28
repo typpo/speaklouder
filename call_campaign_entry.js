@@ -61,6 +61,7 @@ app.get('/', homeController.index);
 app.get('/about', aboutController.aboutGet);
 app.get('/create-campaign', campaignController.createCampaignGet);
 app.post('/create-campaign', campaignController.createCampaignPost);
+app.get('/campaign/:slug', campaignController.viewCampaignGet);
 app.get('/contact', contactController.contactGet);
 app.post('/contact', contactController.contactPost);
 app.get('/account', userController.ensureAuthenticated, userController.accountGet);

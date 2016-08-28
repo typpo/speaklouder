@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 large-explanation">
+      <div class="header-container">
+        <h1>{{campaign.title}}</h1>
+      </div>
+      <hr/>
+      <div>
+      {{campaign.descriptionHtml | safe}}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

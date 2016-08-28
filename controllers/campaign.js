@@ -5,8 +5,14 @@ var Campaign = require('../models/Campaign');
  * GET /campaign/XXX
  */
 exports.viewCampaignGet = function(req, res) {
-  res.render('campaign', {
-    // Judy TODO
+  Campaign.findOne({'slug': req.params.slug}, function(err, result) {
+    if (err) {
+      res.redirect('/create-campaign');
+      return;
+    }
+    res.render('campaign', {
+      campaign: result
+    });
   });
 };
 
