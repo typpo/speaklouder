@@ -14,9 +14,9 @@
         <ul class="nav navbar-nav">
           <li class="{% if title == 'Home' %}active{% endif %}"><a href="/">Home</a></li>
           <li class="{% if title == 'About' %}active{% endif %}"><a href="/about">About</a></li>
-          <li class="{% if title == 'Create a Campaign' %}active{% endif %}"><a href="/create-campaign"><strong>Create a Campaign</strong></a></li>
         </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li class="{% if title == 'Create a Campaign' %}active{% endif %}"><a href="/create-campaign"><strong>Create a Campaign</strong></a></li>
       {% if user %}
         <li class="dropdown">
           <a href="#" data-toggle="dropdown" class="navbar-avatar dropdown-toggle">
@@ -41,8 +41,10 @@
           </ul>
         </li>
       {% else %}
+<!--
         <li class="{% if title == 'Log in' %}active{% endif %}"><a href="/login">Log in</a></li>
         <li class="{% if title == 'Sign up' %}active{% endif %}"><a href="/signup">Sign up</a></li>
+-->
       {% endif %}
       </ul>
       </div>
