@@ -1,9 +1,19 @@
+var slug = require('slug');
 var Campaign = require('../models/Campaign');
+
+/**
+ * GET /campaign/XXX
+ */
+exports.viewCampaignGet = function(req, res) {
+  res.render('campaign', {
+    // Judy TODO
+  });
+};
 
 /**
  * GET /create-campaign
  */
-exports.campaignGet = function(req, res) {
+exports.createCampaignGet = function(req, res) {
   res.render('edit', {
     title: 'Create a Campaign'
   });
@@ -12,20 +22,22 @@ exports.campaignGet = function(req, res) {
 /**
  * POST /create-campaign
  */
-exports.campaignPost = function(req, res) {
-  
+exports.createCampaignPost = function(req, res) {
+  var titleSlug = slug(req.body.title);
   var campaign = new Campaign({
     title: req.body.title,
-    description: req.body.description,
+    slug: titleSlug,
+
     organizerName: req.body.organizerName,
-    email: req.body.email,
-    slug: req.body.slug,
+    organizerEmail: req.body.organizerEmail,
+
+    descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size'),
   });
 
   campaign.save();
 
   res.send({
-    success: true
+    success: true,
+    slug: titleSlug,
   });
-
 };
