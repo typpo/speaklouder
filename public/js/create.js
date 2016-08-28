@@ -22,11 +22,23 @@ $(function() {
       descriptionHtml: desc,
     }, function(data) {
       if (!data.success) {
+        analytics.track('create', {
+          success: false,
+          err: 'something went wrong'
+        });
         alert('Sorry, something went wrong and we could not create your campaign :( Please try again later.');
         return;
       }
       // Redirect to created page.
+      analytics.track('create', {
+        success: true
+      });
       window.location.href = '/campaign/' + data.slug;
+    });
+    analytics.track('create - submit');
+    analytics.identify(name, {
+      name: name,
+      email: email
     });
     return false;
   });
