@@ -29,6 +29,8 @@ exports.editCampaignGet = function(req, res) {
       title: 'Edit a Campaign',
       campaign: result,
       descriptionHtml: result.descriptionHtml,
+
+      edit: true,
     });
   });
 };
