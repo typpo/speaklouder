@@ -1,3 +1,4 @@
+var slug = require('slug');
 var Campaign = require('../models/Campaign');
 
 /**
@@ -13,13 +14,12 @@ exports.campaignGet = function(req, res) {
  * POST /create-campaign
  */
 exports.campaignPost = function(req, res) {
-  
   var campaign = new Campaign({
     title: req.body.title,
     description: req.body.description,
     organizerName: req.body.organizerName,
     email: req.body.email,
-    slug: req.body.slug,
+    slug: slug(req.body.title),
   });
 
   campaign.save();
@@ -27,5 +27,4 @@ exports.campaignPost = function(req, res) {
   res.send({
     success: true
   });
-
 };
