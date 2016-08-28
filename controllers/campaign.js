@@ -29,7 +29,7 @@ exports.createCampaignGet = function(req, res) {
  * POST /create-campaign
  */
 exports.createCampaignPost = function(req, res) {
-  var titleSlug = slug(req.body.title);
+  var titleSlug = slug(req.body.title).toLowerCase();
   var campaign = new Campaign({
     title: req.body.title,
     slug: titleSlug,
