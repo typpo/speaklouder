@@ -21,7 +21,7 @@ $(function() {
       organizerEmail: email,
       descriptionHtml: desc,
     }, function(data) {
-      if (data.success) {
+      if (!data.success) {
         alert('Sorry, something went wrong and we could not create your campaign :( Please try again later.');
         return;
       }
