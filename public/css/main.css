@@ -6016,6 +6016,9 @@ textarea {
 form label {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+form button {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
 .organizer-subtitle {
   font-weight: normal;
   color: gray; }
