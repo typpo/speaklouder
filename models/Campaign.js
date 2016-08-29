@@ -8,6 +8,8 @@ var campaignSchema = new mongoose.Schema({
   organizerName: String,
 
   descriptionHtml: String,
+
+  editKey: String,
 });
 
 var Campaign = mongoose.model('Campaign', campaignSchema);

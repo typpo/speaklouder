@@ -5837,7 +5837,14 @@ footer {
   max-width: 555px; }
 
 .alert {
-  border-width: 0 0 0 3px; }
+  border-width: 0 0 0 3px;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold; }
+
+.alert a {
+  font-weight: normal;
+  color: white;
+  text-decoration: underline; }
 
 nav {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }

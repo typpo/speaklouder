@@ -38,6 +38,14 @@ footer {
 
 .alert {
   border-width: 0 0 0 3px;
+  font-family: $font-family-sans-serif;
+  font-weight: bold;
+}
+
+.alert a {
+  font-weight: normal;
+  color: white;
+  text-decoration: underline;
 }
 
 // Navbar

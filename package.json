@@ -33,6 +33,7 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "randomstring": "^1.1.5",
     "slug": "^0.9.1"
   },
   "devDependencies": {},

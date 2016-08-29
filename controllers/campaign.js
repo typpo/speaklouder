@@ -1,3 +1,4 @@
+var randomstring = require('randomstring');
 var slug = require('slug');
 var util = require('util');
 
@@ -22,11 +23,15 @@ exports.viewCampaignGet = function(req, res) {
  * GET /campaign/:slug/edit
  */
 exports.editCampaignGet = function(req, res) {
-  Campaign.findOne({'slug': req.params.slug}, function(err, result) {
-    if (err) {
+  Campaign.findOne({
+    slug: req.params.slug,
+    editKey: req.query.key,
+  }, function(err, result) {
+    if (err || !result) {
       res.redirect('/create-campaign');
       return;
     }
+
     // Reverse the class renaming so Quill can understand it.
     result.descriptionHtml = result.descriptionHtml.replace('sl-ql-size', 'ql-size');
     res.render('edit', {
@@ -54,7 +59,10 @@ function editCampaignPost(req, res) {
   // FIXME(ian): You can edit anyone's post if you really wanted...
   var titleSlug = slug(req.body.title).toLowerCase();
   Campaign.update(
-    {slug: titleSlug},
+    {
+      slug: titleSlug,
+      editKey: req.body.editKey,
+    },
     {
       organizerName: req.body.organizerName,
       organizerEmail: req.body.organizerEmail,
@@ -80,16 +88,18 @@ function editCampaignPost(req, res) {
 exports.createCampaignPost = function(req, res) {
   var titleSlug = slug(req.body.title).toLowerCase();
 
-  if (req.body.edit) {
+  if (req.body.editKey) {
     // User is editing an existing campaign.
     return editCampaignPost(req, res);
   }
 
   Campaign.findOne({'slug': titleSlug}, function(err, result) {
-    if (!err) {
+    if (result) {
       // Handle slug collision.
       titleSlug += '-' + parseInt(new Date().getTime() / 1000);
     }
+
+    var editKey = randomstring.generate(7);
 
     var campaign = new Campaign({
       title: req.body.title,
@@ -99,13 +109,28 @@ exports.createCampaignPost = function(req, res) {
       organizerEmail: req.body.organizerEmail,
 
       descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size'),
+
+      editKey: editKey,
     });
 
     campaign.save();
 
-    req.flash('success', {
-      msg: util.format('Here\'s your new campaign page!  Share it with others: http://www.speaklouder.org/%s', titleSlug),
+    var campaignUrl = util.format('http://www.speaklouder.org/campaign/%s', titleSlug);
+    var editUrl = util.format('http://www.speaklouder.org/campaign/%s/edit?key=%s', titleSlug, editKey);
+    console.log(campaignUrl, editUrl);
+
+    var successFlashHtml =
+      util.format('Here\'s your new campaign page!  Share it with others: <a href="%s">%s</a>', campaignUrl, campaignUrl);
+
+    var editFlashHtml =
+      util.format('To edit this page, save this URL: <a href="%s">%s</a>.', editUrl, editUrl);
+
+    req.flash('info', {
+      msg: util.format('<p>%s</p><p>%s</p>', successFlashHtml, editFlashHtml),
     });
+
+    console.log(successFlashHtml, editFlashHtml);
+
     res.send({
       success: true,
       slug: titleSlug,

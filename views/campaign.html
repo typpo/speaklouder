@@ -4,6 +4,34 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 large-explanation">
+      {% if messages.success %}
+      <div role="alert" class="alert alert-success">
+        {% for success in messages.success %}
+        <div>{{ success.msg | safe }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if messages.warning %}
+      <div role="alert" class="alert alert-danger">
+        {% for warning in messages.warning %}
+        <div>{{ warning.msg | safe }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if messages.error %}
+      <div role="alert" class="alert alert-danger">
+        {% for error in messages.error %}
+        <div>{{ error.msg | safe }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if messages.info %}
+      <div role="alert" class="alert alert-info">
+        {% for info in messages.info %}
+        <div>{{ info.msg | safe }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
       <div class="header-container">
         <h1>{{campaign.title}}</h1>
         <h5 class="organizer-subtitle">Organizer: {{campaign.organizerName}}</h5>

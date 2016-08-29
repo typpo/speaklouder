@@ -20,7 +20,7 @@ $(function() {
       organizerName: name,
       organizerEmail: email,
       descriptionHtml: desc,
-      edit: (window.location.pathname.match(/campaign\/.*\/edit$/) != null)
+      editKey: getUrlParameter('key')
     }, function(data) {
       if (!data.success) {
         analytics.track('create', {
@@ -44,3 +44,7 @@ $(function() {
     return false;
   });
 });
+
+function getUrlParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+}
