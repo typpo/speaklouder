@@ -6011,6 +6011,12 @@ textarea {
 .call-to-action-container .sub-caption {
   font-size: 12px; }
 
+.trending-campaigns a {
+  color: #333; }
+
+.trending-campaigns a:hover {
+  color: #008800; }
+
 .campaign-panel img {
   width: 100%;
   height: 150px;
