@@ -122,7 +122,7 @@ exports.createCampaignPost = function(req, res) {
       util.format('Here\'s your new campaign page!  Share it with others: <a href="%s">%s</a>', campaignUrl, campaignUrl);
 
     var editFlashHtml =
-      util.format('To edit this page, save this URL: <a href="%s">%s</a>.', editUrl, editUrl);
+      util.format('To edit this page in the future, save this URL: <a href="%s">%s</a>.', editUrl, editUrl);
 
     req.flash('info', {
       msg: util.format('<p>%s</p><p>%s</p>', successFlashHtml, editFlashHtml),
