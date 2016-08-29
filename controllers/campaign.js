@@ -117,7 +117,6 @@ exports.createCampaignPost = function(req, res) {
 
     var campaignUrl = util.format('http://www.speaklouder.org/campaign/%s', titleSlug);
     var editUrl = util.format('http://www.speaklouder.org/campaign/%s/edit?key=%s', titleSlug, editKey);
-    console.log(campaignUrl, editUrl);
 
     var successFlashHtml =
       util.format('Here\'s your new campaign page!  Share it with others: <a href="%s">%s</a>', campaignUrl, campaignUrl);
@@ -128,8 +127,6 @@ exports.createCampaignPost = function(req, res) {
     req.flash('info', {
       msg: util.format('<p>%s</p><p>%s</p>', successFlashHtml, editFlashHtml),
     });
-
-    console.log(successFlashHtml, editFlashHtml);
 
     res.send({
       success: true,
