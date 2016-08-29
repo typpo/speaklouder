@@ -33,7 +33,7 @@ exports.editCampaignGet = function(req, res) {
     }
 
     // Reverse the class renaming so Quill can understand it.
-    result.descriptionHtml = result.descriptionHtml.replace('sl-ql-size', 'ql-size');
+    result.descriptionHtml = result.descriptionHtml.replace('"sl-ql-', '"ql-');
     res.render('edit', {
       title: 'Edit a Campaign',
       campaign: result,
@@ -66,7 +66,7 @@ function editCampaignPost(req, res) {
     {
       organizerName: req.body.organizerName,
       organizerEmail: req.body.organizerEmail,
-      descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size')
+      descriptionHtml: req.body.descriptionHtml.replace('"ql-', '"sl-ql-')
     }, {}, function(err, result) {
       if (err) {
         res.send({
@@ -108,7 +108,7 @@ exports.createCampaignPost = function(req, res) {
       organizerName: req.body.organizerName,
       organizerEmail: req.body.organizerEmail,
 
-      descriptionHtml: req.body.descriptionHtml.replace('ql-size', 'sl-ql-size'),
+      descriptionHtml: req.body.descriptionHtml.replace('"ql-', '"sl-ql-'),
 
       editKey: editKey,
     });
