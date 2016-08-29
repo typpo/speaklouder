@@ -5831,7 +5831,8 @@ footer {
   padding: 10px 30px;
   bottom: 0;
   background-color: #fff;
-  border-top: 1px solid #e0e0e0; }
+  border-top: 1px solid #e0e0e0;
+  color: #ccc; }
 
 .login-container {
   max-width: 555px; }
