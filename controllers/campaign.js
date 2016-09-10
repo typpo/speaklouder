@@ -134,3 +134,68 @@ exports.createCampaignPost = function(req, res) {
     });
   });
 };
+
+/**
+ * POST /campaign/:slug/addEmail
+ */
+exports.addCampaignEmail = function(req, res) {
+  var titleSlug = slug(req.params.slug).toLowerCase();
+  var email = req.body.email;
+  if (email.indexOf('@') < 0) {
+    // Invalid email.
+    res.send({
+      success: false,
+    });
+    return;
+  }
+
+  Campaign.update(
+    {
+      slug: titleSlug,
+    },
+    {
+      $push: {
+        subscriberEmails: email,
+      },
+    }, {}, function(err, result) {
+      if (err) {
+        res.send({
+          success: false,
+        });
+        return;
+      }
+      res.send({
+        success: true,
+      });
+    }
+  );
+}
+
+/**
+ * POST /campaign/:slug/addPhone
+ */
+exports.addCampaignPhone = function(req, res) {
+  var titleSlug = slug(req.params.slug).toLowerCase();
+  var phone = req.body.phone;
+
+  Campaign.update(
+    {
+      slug: titleSlug,
+    },
+    {
+      $push: {
+        subscriberPhones: phone,
+      },
+    }, {}, function(err, result) {
+      if (err) {
+        res.send({
+          success: false,
+        });
+        return;
+      }
+      res.send({
+        success: true,
+      });
+    }
+  );
+}
