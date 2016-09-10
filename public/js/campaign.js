@@ -10,7 +10,7 @@ $(function() {
     $.post(window.location.pathname + '/addContact', {
       contact: val
     }, function(data) {
-      $('#contact-container').text('Thank you for signing up').addClass('success');
+      $('#contact-container').html('&#x2713; Thank you for signing up').addClass('success');
     });
 
     return false;
