@@ -134,3 +134,34 @@ exports.createCampaignPost = function(req, res) {
     });
   });
 };
+
+/**
+ * POST /campaign/:slug/addContact
+ */
+exports.addCampaignContact = function(req, res) {
+  var titleSlug = slug(req.params.slug).toLowerCase();
+  var contact = req.body.contact.trim();
+  var isEmail = false;
+  if (contact.indexOf('@') > -1) {
+    isEmail = true;
+  }
+
+  var pushObj = {};
+  pushObj[isEmail ? 'subscriberEmails' : 'subscriberPhones'] = contact;
+
+  Campaign.update(
+    { slug: titleSlug },
+    { $push: pushObj },
+    {}, function(err, result) {
+      if (err) {
+        res.send({
+          success: false,
+        });
+        return;
+      }
+      res.send({
+        success: true,
+      });
+    }
+  );
+}

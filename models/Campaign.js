@@ -6,6 +6,8 @@ var campaignSchema = new mongoose.Schema({
 
   organizerEmail: String,
   organizerName: String,
+  subscriberPhones: [String],
+  subscriberEmails: [String],
 
   descriptionHtml: String,
 

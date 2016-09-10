@@ -5822,7 +5822,7 @@ html {
   min-height: 100%; }
 
 body {
-  margin-bottom: 44px; }
+  margin-bottom: 70px; }
 
 footer {
   position: absolute;
@@ -6036,6 +6036,9 @@ form button {
 .organizer-subtitle {
   font-weight: normal;
   color: gray; }
+
+.success {
+  color: #00bb00; }
 
 .sl-ql-size-small {
   font-size: 12px; }
