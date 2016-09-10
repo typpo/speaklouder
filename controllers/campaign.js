@@ -136,57 +136,23 @@ exports.createCampaignPost = function(req, res) {
 };
 
 /**
- * POST /campaign/:slug/addEmail
+ * POST /campaign/:slug/addContact
  */
-exports.addCampaignEmail = function(req, res) {
+exports.addCampaignContact = function(req, res) {
   var titleSlug = slug(req.params.slug).toLowerCase();
-  var email = req.body.email;
-  if (email.indexOf('@') < 0) {
-    // Invalid email.
-    res.send({
-      success: false,
-    });
-    return;
+  var contact = req.body.contact.trim();
+  var isEmail = false;
+  if (contact.indexOf('@') > -1) {
+    isEmail = true;
   }
 
-  Campaign.update(
-    {
-      slug: titleSlug,
-    },
-    {
-      $push: {
-        subscriberEmails: email,
-      },
-    }, {}, function(err, result) {
-      if (err) {
-        res.send({
-          success: false,
-        });
-        return;
-      }
-      res.send({
-        success: true,
-      });
-    }
-  );
-}
-
-/**
- * POST /campaign/:slug/addPhone
- */
-exports.addCampaignPhone = function(req, res) {
-  var titleSlug = slug(req.params.slug).toLowerCase();
-  var phone = req.body.phone;
+  var pushObj = {};
+  pushObj[isEmail ? 'subscriberEmails' : 'subscriberPhones'] = contact;
 
   Campaign.update(
-    {
-      slug: titleSlug,
-    },
-    {
-      $push: {
-        subscriberPhones: phone,
-      },
-    }, {}, function(err, result) {
+    { slug: titleSlug },
+    { $push: pushObj },
+    {}, function(err, result) {
       if (err) {
         res.send({
           success: false,

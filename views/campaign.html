@@ -45,16 +45,17 @@
         <div class="call-to-action-container">
           <div>
             <a href="tel:18448720234" class="btn btn-success">Call Your Representatives Now</a>
-            <h4>1-844-USA-0234</h4>
-            <span class="sub-caption">Toll free - it only takes a minute</span>
+            <h3>1-844-USA-0234</h3>
+            <span class="sub-caption">Call toll free - it only takes a minute</span>
           </div>
+          <hr/>
           <div>
             <h4>Receive important notices about this issue</h4>
             <form class="form-inline col-sm-8 col-sm-offset-2">
-              <div class="input-group">
-                <input class="form-control" type="text" placeholder="Email or Phone #" />
+              <div id="contact-container" class="input-group">
+                <input id="contact" class="form-control" type="text" placeholder="Email or Phone #" />
                 <div class="input-group-btn">
-                  <button class="btn btn-success">Subscribe</button>
+                  <button id="subscribe" class="btn btn-success">Subscribe</button>
                 </div>
               </div>
             </form>
@@ -64,4 +65,8 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/campaign.js"></script>
 {% endblock %}
